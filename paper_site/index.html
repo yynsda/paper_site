@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
+    <title>论文标题 — 演示站点 (MathJax版)</title>
+    <meta name="description" content="一个支持 LaTeX 公式展示的响应式论文网页模板">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- MathJax 支持 -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <h1 class="site-title">
+            Association between changes in the triglyceride glucose-body roundness Index and cardiovascular disease risk in middle-aged and elderly Chinese adults: a nationwide longitudinal study from 2011 to 2015
+        </h1>
+        <p class="site-meta">作者甲、作者乙 · 机构名称 · 2025</p>
+    </div>
+</header>
+
+<main class="container content">
+    <!-- 摘要 -->
+    <section id="abstract">
+        <h2>Abstract</h2>
+        <p><strong>Background:</strong> The mental health of university students, particularly depression,
+            has become a significant public health concern in China. While previous studies
+            have highlighted the link between self-efficacy and mental health, especially
+            concerning depressive symptoms, the potential mediating role of the big five
+            personality traits in this relationship remains underexplored. This study aims to
+            examine the relationships among self-efficacy, the big five personality traits, and
+            depressive symptoms through a mediation model.</p>
+
+        <p><strong>Methods:</strong> This cross-sectional study utilized a multi-stage stratified random
+            sampling method to survey residents across 23 provinces in China, ultimately
+            enrolling 1,193 university students aged 19–25. Measures included the PHQ-9 to
+            assess depressive symptoms, the BFI-10 to evaluate personality traits, and the
+            NGSES for self-efficacy. Hierarchical regression, random forest regression,
+            mediation analyses, and restricted cubic spline (RCS) models were conducted
+            using R software.</p>
+
+        <p><strong>Results:</strong> The prevalence of depressive symptoms among university students was
+            21.8%. Neuroticism (p&lt;0.001) was a positive predictor of depressive symptoms,
+            while agreeableness (p&lt;0.001) and conscientiousness (p&lt;0.001) were negative
+            predictors. Agreeableness [Effect = -0.028, 95% CI (-0.045, -0.014)],
+            conscientiousness [Effect = -0.043, 95% CI (-0.067, -0.023)], and neuroticism
+            [Effect = -0.048, 95% CI (-0.070, -0.029)] significantly mediated the relationship
+            between self-efficacy and depressive symptoms. Additionally, a potential nonlinear
+            relationship (p for nonlinearity &lt; 0.001) was identified between self-efficacy and
+            depressive symptoms.</p>
+
+        <p><strong>Conclusions:</strong> Self-efficacy shows a direct positive association with depressive
+            symptoms when controlling for personality traits, with neuroticism, agreeableness,
+            and conscientiousness serving as key mediators. This highlights that the effect of
+            self-efficacy on depression depends critically on personality, emphasizing the need
+            to consider these traits in interventions for university students’ mental health.</p>
+
+        <p><strong>Keywords:</strong> depressive symptoms; self-efficacy; big five personality traits; university students; China</p>
+    </section>
+
+    <!-- 英文引言 -->
+    <section id="intro">
+        <h2>1. Introduction</h2>
+
+        <p id="cite-1">
+            Cardiovascular disease (CVD) has become a major global public health concern, with its rising incidence and mortality posing significant threats to healthcare systems and individual health
+            <sup><a href="#ref-1">[1]</a>, <a href="#ref-2">[2]</a></sup>. In the context of an aging population, middle-aged and older adults face elevated CVD risk due to prevalent metabolic abnormalities and age-related physiological changes
+            <sup><a href="#ref-3">[3]</a>, <a href="#ref-4">[4]</a></sup>. Early identification and intervention targeting metabolic and obesity factors are essential for reducing the CVD burden.
+        </p>
+
+        <p id="cite-2">
+            Obesity, especially visceral fat accumulation, is a key contributor to metabolic dysfunction and significantly elevates the risk of CVD
+            <sup><a href="#ref-5">[5]</a>, <a href="#ref-6">[6]</a></sup>. Visceral adipose tissue, compared to subcutaneous fat, is more metabolically active and closely linked to insulin resistance (IR), dyslipidemia, and chronic systemic inflammation, all of which drive the development of type 2 diabetes, metabolic syndrome, and atherosclerosis
+            <sup><a href="#ref-7">[7]</a>–<a href="#ref-9">[9]</a></sup>. Given the significant role of visceral fat in these pathophysiological processes, accurately capturing fat distribution is essential for effective metabolic and cardiovascular risk assessment. However, traditional measures such as body mass index (BMI) inadequately reflect fat distribution and are limited in their predictive power for metabolic diseases and CVD
+            <sup><a href="#ref-10">[10]</a></sup>. To overcome these limitations, the body roundness index (BRI) was developed, integrating height and waist circumference to better estimate visceral adiposity. Emerging evidence suggests that BRI outperforms traditional anthropometric indices in predicting a range of clinical outcomes, including cardiovascular and metabolic diseases
+            <sup><a href="#ref-11">[11]</a>–<a href="#ref-14">[14]</a></sup>.
+        </p>
+
+        <p id="cite-3">
+            At the same time, IR has been recognized as a key intermediary linking metabolic dysfunction to CVD
+            <sup><a href="#ref-7">[7]</a>, <a href="#ref-8">[8]</a></sup>. IR is characterized by impaired responsiveness of peripheral tissues to insulin, and is independently associated with increased morbidity and mortality, particularly in relation to cardiovascular events
+            <sup><a href="#ref-15">[15]</a>, <a href="#ref-16">[16]</a></sup>. A previous meta-analysis reported that IR is independently associated with higher CVD risk and all-cause mortality in individuals without diabetes
+            <sup><a href="#ref-17">[17]</a></sup>. Although the hyperinsulinemia-euglycemic clamp (HEC) technique remains the gold standard for evaluating IR, its invasiveness and high cost limit its utility in large epidemiological studies
+            <sup><a href="#ref-18">[18]</a></sup>. The triglyceride-glucose index (TyG), a simple and reliable surrogate marker for IR, has been widely adopted in clinical research and practice. It has demonstrated strong predictive capabilities for metabolic syndrome, hypertension, atherosclerosis, and cardiovascular events
+            <sup><a href="#ref-19">[19]</a>–<a href="#ref-21">[21]</a></sup>.
+        </p>
+
+        <p id="cite-4">
+            Notably, obesity and IR are intricately interconnected: visceral adiposity promotes IR through chronic inflammation and endoplasmic reticulum stress, while IR exacerbates adiposity by disrupting metabolic homeostasis
+            <sup><a href="#ref-22">[22]</a></sup>. Recognizing this bidirectional relationship, researchers have explored combining metabolic and obesity-related indices to enhance CVD risk prediction. Composite indices such as triglyceride glucose–body mass index (TyG-BMI) and triglyceride glucose–waist-to-hip ratio (TyG-WHtR) have shown superior predictive performance compared to individual markers alone
+            <sup><a href="#ref-23">[23]</a></sup>. Building on this, recent research has proposed the triglyceride-glucose–body roundness index (TyG-BRI) as a novel composite marker for the assessment of stroke
+            <sup><a href="#ref-24">[24]</a></sup>. This index integrates both metabolic and anthropometric dimensions, potentially offering enhanced predictive performance compared to traditional single indicators. However, considering that both obesity and metabolic parameters are inherently dynamic, the long-term trajectories of TyG-BRI and their associations with CVD risk remain insufficiently explored.
+        </p>
+
+        <p>
+            To fill this knowledge gap, we utilized data from the China Health and Retirement Longitudinal Study to investigate the association between cumulative changes in TyG-BRI from 2011 to 2015 and the risk of incident CVD among middle-aged and older adults aged 45 years and above. We hypothesized that the combined use of TyG and BRI would exert a synergistic effect in predicting CVD risk, outperforming the predictive ability of either index alone.
+        </p>
+    </section>
+
+
+    <!-- 方法 -->
+    <section id="method">
+        <h2>2. Materials and methods</h2>
+        <h3>2.1 Data source and study population</h3>
+        <p id="cite-22">
+            All data used in this study were derived from the China Health and Retirement Longitudinal Study (CHARLS), a widely recognized longitudinal study focusing on middle-aged and older adults (≥45 years) and representing the national population
+            <sup><a href="#ref-25">[25]</a></sup>. The baseline national survey of CHARLS was conducted from June 2011 to March 2012, involving 17,708 participants. A multi-stage probability sampling method was used for sample selection. In the first stage, a probability proportional to size (PPS) sampling technique was applied to randomly select 150 county-level units from a sampling framework that covered all counties except Tibet. The final sample of 150 counties was distributed across 28 provinces. The sampling was stratified by region, urban or rural area, and GDP per capita
+            <sup><a href="#ref-25">[25]</a></sup>.
+        </p>
+        <p id="cite-23">
+            Participants were followed up every 2–3 years, with waves in 2013 (Wave 2), 2015 (Wave 3), 2018 (Wave 4), and 2020 (Wave 5). In each wave, trained interviewers administered standardized health-related questionnaires. Blood samples and physical measurements were collected in Waves 1 and 3. Further details on the CHARLS sampling methods, anthropometric measurements, and blood biomarkers can be found in previous publications
+            <sup><a href="#ref-25">[25]</a>, <a href="#ref-26">[26]</a></sup>.
+        </p>
+        <p id="cite-24">
+            This study used data from Waves 1, 2, and 3 of the CHARLS. Initially, 17,708 participants from Wave 1 were included. We excluded 4,143 individuals who dropped out or died by Waves 2 or 3, 394 participants younger than 45 years, and 506 participants with missing data on heart disease or stroke, leaving 12,665 participants. Additional exclusions were made for 1,911 individuals who lacked fasting blood samples, 6,033 participants with missing TyG-BRI data in either Wave 1 or Wave 3, and 195 individuals with BRI values outside the acceptable range (&lt;1 or &gt;20)
+            <sup><a href="#ref-27">[27]</a></sup>. After these exclusions, the final sample consisted of 4,446 participants (Figure 1).
+        </p>
+
+        <figure id="fig-1">
+            <img src="images/fig1.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 1. Flowchart for the selection of participants in the study (n = 4,446).</figcaption>
+        </figure>
+
+        <h3>2.2 Data assessment and definitions</h3>
+        <h4>2.2.1 Cardiovascular disease</h4>
+        <p id="cite-25">
+            In each CHARLS survey, participants were asked, “Has a doctor ever diagnosed you with stroke/heart disease (including myocardial infarction, coronary heart disease, angina, congestive heart failure, or other heart problems)?” and “Are you currently receiving any of the following treatments (traditional Chinese medicine, Western medicine, other treatment, or none) for stroke/heart disease or its complications?” Following previous studies
+            <sup><a href="#ref-28">[28]</a></sup>, participants who self-reported a physician-diagnosed heart disease or stroke, or indicated receiving specific treatments for heart disease or stroke, were classified as having CVD.
+        </p>
+        <h4>2.2.2 Triglyceride glucose-body roundness index</h4>
+        <p id="cite-26">
+            The TyG-BRI is derived from multiplying TyG with BRI, as shown in Formula 1. The calculation of BRI is given by Formula 2
+            <sup><a href="#ref-27">[27]</a></sup>, while TyG is calculated according to Formula 3
+            <sup><a href="#ref-29">[29]</a></sup>. Although data from all three waves were used, only the physical examination data from Waves 1 and 3 contained the necessary indicators for calculating the TyG-BRI. To represent participants’ status over time, a weight of 3 was applied to the indicators from Wave 1 and a weight of 2 was applied to those from Wave 3. All relevant variables, including systolic blood pressure (SBP), diastolic blood pressure (DBP), BRI, glycosylated hemoglobin A1c (HbA1c), fasting blood glucose (FBG), triglycerides (TG), total cholesterol (TC), high-density lipoprotein cholesterol (HDL-c), low-density lipoprotein cholesterol (LDL-c), uric acid, creatinine, and blood urea nitrogen (BUN), were calculated using this weighted approach.
+        </p>
+
+        <!-- 公式 1 -->
+        <!-- 公式 (1) -->
+        <div class="equation">
+            <div class="equation-scroll">
+                <div class="equation-math">
+                    $$\mathrm{TyG\!-\!BRI} = \mathrm{TyG} \times \mathrm{BRI}$$
+                </div>
+            </div>
+            <span class="eq-number">(1)</span>
+        </div>
+
+        <!-- 公式 (2) -->
+        <div class="equation">
+            <div class="equation-scroll">
+                <div class="equation-math">
+                    $$\mathrm{BRI} = 364.2 - 365.5 \sqrt{\,1 - \left(\frac{\mathrm{WC\,(cm)}}{2\pi}\right)^{2} \bigg/ \left(0.5 \times \mathrm{Height\,(cm)}\right)^{2}}$$
+                </div>
+            </div>
+            <span class="eq-number">(2)</span>
+        </div>
+
+        <!-- 公式 (3) -->
+        <div class="equation">
+            <div class="equation-scroll">
+                <div class="equation-math">
+                    $$\mathrm{TyG} = \ln\!\left(\frac{\mathrm{TG\,(mg/dL)} \times \mathrm{FBG\,(mg/dL)}}{2}\right)$$
+                </div>
+            </div>
+            <span class="eq-number">(3)</span>
+        </div>
+
+
+        <h4>2.2.3 Covariates</h4>
+        <p id="cite-27">
+            In addition to CVD and the TyG-BRI, we collected the following data: (i) demographic information: gender, age, education level, residence, and marital status; (ii) body measurements: SBP, DBP, height, weight, and waist circumference; (iii) lifestyle factors: smoking status, drinking status, and exercise habits; (iv) medical history: dyslipidemia, hypertension, diabetes, kidney disease, and liver disease; (v) laboratory examinations: HbA1c, FBG, TG, TC, HDL-c, LDL-c, BUN, uric acid, and creatinine. Supplementary Figure S1 shows the distribution of variables with missing data in our study. To increase accuracy, we updated each measure using all available data from baseline through the end of follow-up. Although the proportion of missing data was small, we employed multiple imputations to address any gaps and maintain a robust sample size.
+        </p>
+        <figure id="fig-2">
+            <img src="images/fig2.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 2. Clustering of the changes in the TyG-BRI from 2011 to 2015. (A,B) Determine the optimal number of clusters for the changes in TyG-BRI via the within-cluster sum of squares and gap statistics methods. (C) Clustering diagrams for TyG-BRI (2011) and TyG-BRI (2015). (D) Data visualization of the mean TyG-BRI across different clusters.</figcaption>
+        </figure>
+        <h3>2.3 Statistical analysis</h3>
+        <p id="cite-28">
+            The TyG-BRI categories were defined via the K-means clustering method, which is a widely used unsupervised learning algorithm that partitions a dataset into clusters from proximity to cluster centroids. K-means minimizes the sum of the squared Euclidean distances between data points and their assigned cluster centroids, optimizing cluster formation
+            <sup><a href="#ref-30">[30]</a></sup>. To determine the optimal number of clusters, we used the elbow method and the gap statistics. The elbow method involves clustering the data with various values of k (typically between 1 and 10), calculating the total WSS for each, and plotting the WSS against k. The “elbow” point, where the rate of WSS reduction sharply decreases, suggests the ideal number of clusters. The gap statistic further validates the optimal k by comparing within-cluster variation for each k with that of reference datasets generated under a null hypothesis of a random distribution. The optimal k is identified when the gap statistic reaches its maximum, indicating a significant difference between the observed clustering and a random distribution.
+        </p>
+        <p id="cite-29">
+            Because of the K-means clustering analysis, the study population was divided into three clusters (Cluster 1 to Cluster 3). The characteristics of the participants are presented as the means ± standard deviation (SD) for continuous variables, with group differences assessed via one-way ANOVA. Categorical variables were reported as numbers (percentages) and were analyzed for group differences via Pearson’s chi-square test. To evaluate the association between the TyG-BRI and CVD incidence, univariable and multivariable logistic regression models were developed, with odds ratio (OR) and 95% confidence interval (95% CI). Model 1 was adjusted for age, sex, education, marital status, and residence. Model 2 included adjustments for these variables plus drinking, exercise, HbA1c, TC, HDL-c, LDL-c, uric acid, BUN, creatinine, SBP, and DBP. Model 3 was further adjusted for liver disease, diabetes, and kidney disease in addition to all covariates included in Model 2. Multicollinearity was assessed through variance inflation factors (VIFs) for each variable, all of which were less than 5 (Supplementary Table S1), indicating no significant multicollinearity issues. To assess the effectiveness of the TyG-BRI in predicting CVD incidence, receiver operating characteristic (ROC) curve analysis was conducted via the pROC package. DeLong’s test was applied to compare the predictive performance of the TyG-BRI with that of BRI and TyG. Additionally, a fully adjusted restricted cubic spline (RCS) logistic regression model (using 4 knots at the 5th, 35th, 65th, and 95th percentiles) was employed to examine the linear and dose–response relationships between the TyG-BRI and CVD incidence. Subgroup analyses and interaction tests were conducted to explore potential modifiers. The participants were stratified by age (&lt;60 and ≥60 years), education level, residence status, marital status, smoking status and drinking status, exercise status, and the presence of conditions such as dyslipidemia, hypertension, diabetes, kidney disease, and liver disease. All the statistical analyses were performed via R software version 4.4.0. A two-tailed P-value of &lt;0.05 was considered statistically significant.
+        </p>
+    </section>
+
+    <!-- 结果 -->
+    <section id="results">
+        <h2>3. Results</h2>
+
+        <h3>3.1 Clustering of TyG-BRI changes from 2012 to 2015</h3>
+        <p>
+            The optimal number of clusters for TyG-BRI variation was determined using the elbow method and gap statistic (Figures 2A,B). Based on the point where the WSS begins to level off and the peak of the gap statistic, the K-means clustering method identified three clusters representing changes in TyG-BRI from 2011 to 2015 (Figure 2C). The ratio of between-cluster sum of squares (BSS) to total sum of squares (TSS) was 74.7%, indicating that the clustering explained a substantial proportion of the total variance and suggested a strong and well-separated structure. As shown in Figure 2D, the mean TyG-BRI values for Cluster 1 (consistently low) were 25.92 in 2011 and 26.24 in 2015. For Cluster 2 (consistently moderate), the values were 39.61 and 41.42, and for Cluster 3 (consistently high), they were 57.58 and 59.80, respectively.
+        </p>
+
+        <h3>3.2 Characteristics of the study participants</h3>
+        <p>
+            Table 1 presents the characteristics of the participants as of 2015, with an average age of 63.04 years, and the 2018 participants (45.39%) were identified as male. Body measurements revealed a significant increase in SBP and DBP as the TyG-BRI score increased. Health history data revealed a marked increase in the incidence of dyslipidemia, hypertension, diabetes, kidney disease, liver disease, and stroke with increasing TyG-BRI. CVD risk follows a similar pattern, with heart disease incidence increasing from 15.9% in Cluster 1 to 28.9% in Cluster 3. The laboratory results further support these trends: HbA1c levels are notably higher in Cluster 3 than in Cluster 1, indicating a potential increase in blood glucose regulation issues with higher TyG-BRI levels. HDL-c levels were inversely related to TyG-BRI scores, with the highest level in Cluster 1 (55.93 mg/dL) and the lowest level in Cluster 3 (44.89 mg/dL). Additionally, BUN and creatinine levels decline progressively across clusters as the TyG-BRI score increases. For further details, Supplementary Table S2 provides a summary of participant characteristics stratified by the presence or absence of CVD.
+        </p>
+
+        <h3>3.3 Associations between the TyG-BRI and CVD incidence</h3>
+        <p>
+            As shown in Figure 3, the prevalence of CVD, heart disease, and stroke increased annually from 2011 to 2015. In 2015, a total of 1,007 participants (22.65%) developed CVD. Additionally, as shown in Table 2, the incidence of CVD increased progressively across TyG-BRI quartiles, from Cluster 1 to Cluster 3, with 310 cases (17.75%) in Cluster 1, 425 cases (22.87%) in Cluster 2, and 272 cases (32.30%) in Cluster 3.
+        </p>
+        <figure id="fig-3">
+            <img src="images/fig3.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 3. Prevalence of CVD, heart disease and Stroke from 2011 to 2015.</figcaption>
+        </figure>
+        <p>
+            After adjusting for multiple covariates, the fully adjusted logistic regression model revealed that participants with higher TyG-BRI (Clusters 2 and 3) had an increased OR for CVD events compared with those in Cluster 1. Specifically, the ORs for CVD events were 1.224 (95% CI: 1.014–1.478) for Cluster 2 and 1.703 (95% CI: 1.33–2.182) for Cluster 3. Consistently, when considered a continuous variable, each one-standard-deviation increase in the TyG-BRI was significantly associated with a greater likelihood of CVD events [OR, 95% CI: 1.251 (1.139–1.373)].
+        </p>
+        <p>
+            Furthermore, logistic regression analysis was used to examine the relationships between the TyG-BRI and specific CVD components (heart disease or stroke). The results revealed a significant association between the TyG-BRI and heart disease incidence [OR, 95% CI: 1.22 (1.001–1.487) for Cluster 2; OR, 95% CI: 1.727 (1.335–2.234) for Cluster 3; OR, 95% CI: 1.258 (1.142–1.386) per 1 SD increase] but no significant association with stroke. These results are detailed in Supplementary Tables S3, S4. In addition, Figure 4 shows that ROC analysis indicated that the TyG-BRI had significantly greater predictive accuracy for hypertension than either BRI or TyG did (AUC, 0.678 vs. 0.583, P &lt; 0.001; AUC, 0.678 vs. 0.555, P &lt; 0.001).
+        </p>
+        <figure id="fig-4">
+            <img src="images/fig4.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 4. ROC curves for the prediction of CVD incidence based on the TyG-BRI, BRI and TyG.</figcaption>
+        </figure>
+        <p>
+            A fully adjusted RCS regression model revealed a positive linear association between the TyG-BRI and CVD incidence (P for overall &lt; 0.001, P for nonlinear = 0.894) (Figure 5). The RCS model also revealed a linear relationship between the TyG-BRI score and heart disease incidence (P for overall &lt; 0.001, P for nonlinear = 0.668), whereas no significant association was found between the TyG-BRI and stroke events (P for overall = 0.819) (Figure 6).
+        </p>
+        <figure id="fig-5">
+            <img src="images/fig5.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 5. Dose-responsive relationship of the TyG-BRI with the risk of CVD. The model was adjusted for age, gender, education level, marital status, residence, drinking status, exercise status, HbA1c, TC, HDL-c, LDL-c, uric acid, BUN, SBP, DBP, creatinine, liver disease, diabetes and kidney disease.</figcaption>
+        </figure>
+        <figure id="fig-6">
+            <img src="images/fig6.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 6. Dose-responsive relationship of the TyG-BRI with the risk of heart disease (A) and stroke disease (B). The model was adjusted for age, gender, education level, marital status, residence, drinking status, exercise status, HbA1c, TC, HDL-c, LDL-c, uric acid, BUN, SBP, DBP, creatinine, liver disease, diabetes, kidney disease.</figcaption>
+        </figure>
+        <h3>3.4 Subgroup analysis</h3>
+        <p>
+            To further investigate the relationship between the TyG-BRI and CVD incidence, we conducted a series of subgroup analyses. As shown in Figure 7, variables such as age, education level, residence status, marital status, smoking and drinking habits, exercise status, and the presence of dyslipidemia, hypertension, diabetes, kidney disease, or liver disease did not significantly affect the associations between the TyG-BRI and CVD incidence (all interactions P &gt; 0.05).
+        </p>
+        <figure id="fig-7">
+            <img src="images/fig7.png" alt="Flow chart of participant selection process" />
+            <figcaption>Figure 7. Subgroup analyses of the associations between TyG-BRI and CVD incidence. The model was adjusted for age, gender, education level, marital status, residence, drinking status, exercise status, HbA1c, TC, HDL-c, LDL-c, uric acid, BUN, SBP, DBP, creatinine, liver disease, diabetes, and, kidney disease (excluding the variable for subgroup stratification).</figcaption>
+        </figure>
+
+        <p>
+            However, a significant interaction effect was observed based on gender (P for interaction = 0.038). Specifically, for females, the OR for the association between the TyG-BRI and CVD incidence was 1.01 (95% CI: 1.01–1.02, P = 0.002). For males, the OR was slightly greater at 1.03 (95% CI: 1.01–1.04, P &lt; 0.001). This gender-based difference suggests that the TyG-BRI may be associated with a slightly elevated risk of CVD in males compared with females.
+        </p>
+    </section>
+
+    <!-- 讨论 -->
+    <section id="discussion">
+        <h2>4. Discussion</h2>
+        <p>In this nationwide longitudinal study, we observed a significant increase in the prevalence of CVD among middle-aged and elderly Chinese adults from 2011 to 2015. Specifically, a long-term elevated TyG-BRI was associated with a higher incidence of CVD events. Moreover, the predictive ability of TyG-BRI for CVD risk was superior to that of TyG or BRI alone. To the best of our knowledge, this is the first study to assess the trend of the long-term changes in TyG-BRI and its association with CVD risk in this specific population. Our findings may provide novel insights and contribute to the development of more effective strategies for CVD prevention.</p>
+        <p id="cite-31">Previous studies have established TyG as a strong biomarker for IR and CVD risk <sup><a href="#ref-31">[31]</a></sup>. Our results are consistent with these findings. For example, the Vascular Metabolism CUN cohort study showed that TyG significantly improved the predictive accuracy of the Framingham coronary heart disease risk model <sup><a href="#ref-32">[32]</a></sup>. Similarly, Cui et al. reported that the cumulative TyG reflects long-term metabolic burden and is closely associated with CVD risk <sup><a href="#ref-33">[33]</a></sup>. From a mechanistic perspective, IR contributes to atherosclerosis through multiple biological pathways. IR can lead to endothelial dysfunction, stimulate the migration and proliferation of vascular smooth muscle cells, and activate chronic inflammation and oxidative stress—changes that play a central role in plaque formation and instability <sup><a href="#ref-34">[34]</a>, <a href="#ref-35">[35]</a></sup>. IR also impairs insulin-mediated nitric oxide (NO) synthesis by inhibiting the PI3K/Akt signaling pathway, weakening vasodilation and increasing vascular tone, which enhances vasoconstriction <sup><a href="#ref-36">[36]</a></sup>. In addition, IR is associated with elevated aldosterone levels, which activate epithelial sodium channels (ENaC), increase sodium permeability, and contribute to vascular stiffness and hypertension <sup><a href="#ref-37">[37]</a></sup>. IR is also linked to a prothrombotic state through increased platelet activation, upregulation of coagulation factors, and reduced fibrinolysis, raising the risk of thrombotic events <sup><a href="#ref-38">[38]</a></sup>. A high TyG, as a reliable indicator of IR, has been shown to be associated with various CVD risk factors, including metabolic syndrome, coronary artery disease, and heart failure <sup><a href="#ref-39">[39]</a>–<a href="#ref-41">[41]</a></sup>. These mechanisms collectively accelerate the development and progression of CVD.</p>
+        <p id="cite-42">Obesity contributes to adipose tissue dysfunction. Imbalanced adipokine secretion leads to chronic systemic inflammation, which underlies the onset and progression of cardiovascular complications <sup><a href="#ref-42">[42]</a></sup>. BRI, based on an ellipse model of body shape, estimates visceral and total body fat percentages using eccentricity <sup><a href="#ref-27">[27]</a></sup>. Emerging evidence suggests that BRI better reflects fat distribution than traditional body fat measures. This makes BRI a strong predictor of metabolic disorders. In our study, we found that cumulative BRI was significantly higher in individuals with CVD than in those without (4.68 ± 1.44 vs. 4.26 ± 1.29, P &lt; 0.001). Data from the National Health and Nutrition Examination Survey (NHANES) and the CHARLS have shown that higher BRI is significantly linked to increased CVD risk <sup><a href="#ref-43">[43]</a>, <a href="#ref-44">[44]</a></sup>. One large cohort study of 15,848 individuals with diabetes or prediabetes found a nonlinear relationship between BRI and cardiovascular mortality over 8 years of follow-up. When BRI exceeded 5.21, CVD risk increased by 13% <sup><a href="#ref-45">[45]</a></sup>. Similarly, the Tehran Lipid and Glucose Study followed 6,840 women for up to 16 years and found that higher BRI was associated with a 60% increase in CVD risk in postmenopausal women or those who transitioned into menopause during the study period <sup><a href="#ref-46">[46]</a></sup>. The mechanisms linking BRI to CVD may involve visceral fat accumulation, which triggers a series of adverse effects including increased oxidative stress, higher levels of pro-inflammatory cytokines, disrupted adipokine secretion, hypoxia, and IR. These changes collectively impair cardiovascular structure and function, ultimately promoting the development of CVD <sup><a href="#ref-47">[47]</a>–<a href="#ref-49">[49]</a></sup>.</p>
+        <p id="cite-50">Our study advances this field by integrating TyG and BRI into a combined indicator—TyG-BRI—which captures both metabolic status and obesity-related risk. This dual biomarker showed stronger associations with CVD risk compared to either component alone. These findings are consistent with other combined indices like TyG-BMI, TyG-WC, and TyG-WHtR, which have also shown significant associations with chronic disease outcomes <sup><a href="#ref-50">[50]</a>, <a href="#ref-51">[51]</a></sup>. For example, TyG-BMI has been linked to the severity of coronary artery lesions <sup><a href="#ref-52">[52]</a></sup> and is useful in predicting major adverse cardiovascular events in patients undergoing percutaneous coronary intervention <sup><a href="#ref-51">[51]</a>, <a href="#ref-53">[53]</a></sup>. It is important to note that metabolic and obesity-related markers, such as TyG index, BMI, and BRI, are not static but fluctuate over time due to factors such as aging, lifestyle changes, and disease progression. We applied the K-means clustering method to categorize individuals into low, medium, and high clusters based on the changes in their TyG-BRI from 2011 to 2015. The results showed that the average TyG-BRI levels in all three groups increased over time, and the prevalence of cardiovascular diseases (including stroke and heart disease) also rose annually. This suggests that the dynamic changes in the TyG-BRI, as a composite metabolic index, may have strong predictive value for cardiovascular health. These findings align with results from a study based on CHARLS, which observed a continuous increase in BRI over years, particularly in women, the elderly, and urban residents, with the increase being more pronounced in these groups. Moreover, prolonged high BRI levels were closely associated with the occurrence of stroke and heart disease events <sup><a href="#ref-54">[54]</a></sup>. Additionally, another study explored the temporal relationship between BMI and TyG and found that changes in BMI often preceded changes in TyG <sup><a href="#ref-55">[55]</a></sup>. This suggests that the worsening of obesity may serve as a precursor to metabolic abnormalities, which may already have a potential impact on cardiovascular health at earlier stages. In fact, these markers can be seen as a “metabolic ledger” that records an individual’s long-term metabolic burden. If this ledger remains in a “high debt” state for an extended period, cardiovascular damage will gradually accumulate and intensify unnoticed. From a physiological mechanism perspective, the impact of metabolic abnormalities on CVD is a gradual process. During this process, the function of adipose tissue is progressively impaired, leading to an increase in pro-inflammatory factors (such as TNF-α and IL-6) and a decrease in anti-inflammatory factors (such as adiponectin), which contributes to a state of chronic low-grade inflammation <sup><a href="#ref-56">[56]</a>, <a href="#ref-57">[57]</a></sup>. This inflammatory response not only exacerbates IR but also promotes the accumulation of visceral fat, further worsening metabolic disturbances and creating a vicious cycle that drives the development of CVD.</p>
+        <p>Although the AUC for TyG-BRI in our study was 0.678—higher than that of BRI (0.583) and TyG (0.555)—its discriminatory power is still considered moderate. This is like findings from other studies. For example, data from the Isfahan Cohort Study showed that TyG had AUC values of 0.631 for myocardial infarction, 0.594 for unstable angina, 0.611 for overall CVD, and 0.595 for stroke <sup><a href="#ref-58">[58]</a></sup>. In the U.S. population, TyG-WC and TyG-WHtR were more effective in predicting CVD and mortality, with AUCs of 0.628 and 0.614, respectively <sup><a href="#ref-23">[23]</a></sup>. They also showed moderate diagnostic accuracy for coronary artery disease, congestive heart failure, and myocardial infarction (AUCs of 0.654 and 0.642). These findings suggest that while combined indices improve predictive performance, their independent value is still limited. Therefore, they should be used alongside other clinical indicators rather than on their own.</p>
+        <p id="cite-59">In addition, when further exploring the associations between the TyG-BRI score and specific CVD components, we identified a significant correlation with heart disease, which is consistent with the findings of previous studies on TyG-related indices <sup><a href="#ref-59">[59]</a></sup>. However, no significant association was found between the TyG-BRI and stroke incidence, which is inconsistent with the findings of several earlier studies <sup><a href="#ref-60">[60]</a></sup>. The small number of stroke cases may have limited our ability to observe this association.</p>
+        <p>To further explore and elucidate the differences and characteristics of our findings across different subgroups, we conducted subgroup analyses, which revealed the distinct predictive power of the TyG-BRI between males and females. Males presented a greater CVD risk with an elevated TyG-BRI. This gender difference can be explained by several physiological and metabolic mechanisms. Studies have shown that men and women differ significantly in fat distribution, hormonal levels, and metabolic characteristics. Men are more likely to accumulate visceral fat, which is closely associated with higher risks of metabolic diseases, whereas women tend to accumulate more subcutaneous fat, particularly in the hips and thighs <sup><a href="#ref-61">[61]</a>, <a href="#ref-62">[62]</a></sup>. Furthermore, higher testosterone levels in men are linked to IR and an increased incidence of glucose and lipid metabolism abnormalities, which further increase their risk of metabolic diseases <sup><a href="#ref-63">[63]</a></sup>. These gender differences not only suggest the potential for gender-specific applications of the TyG-BRI but also offer directions for future research aimed at understanding and utilizing the TyG-BRI for personalized CVD and metabolic disease risk assessment.</p>
+        <p>Despite the important findings of our study, several limitations should be acknowledged. First, this was an observational study. To capture the long-term changes in both CVD and the TyG-BRI over time, we did not exclude individuals who had already been diagnosed with CVD prior to the blood tests. As a result, the causal relationship between TyG-BRI and CVD incidence should be interpreted with caution. Second, health history data were based on self-reports, which may introduce recall bias. Finally, our participants were all middle-aged or older Chinese individuals, and further research is needed to validate whether our findings apply to individuals from different countries and across a broader age range.</p>
+    </section>
+
+    <!-- 结论 -->
+    <section id="concussion">
+        <h2>Concussion</h2>
+        <p>Long-term changes in the TyG-BRI index are strongly associated with an increased risk of CVD, and this composite indicator demonstrates superior predictive power compared to TyG or BRI alone. As a comprehensive marker that simultaneously reflects metabolic dysfunction and obesity status, TyG-BRI serves as a more effective auxiliary tool for CVD risk assessment. It offers valuable insights for the early identification of high-risk populations. Moreover, given the global rise in obesity rates, integrating TyG-BRI into public health strategies could enable more accurate risk stratification and improve the prevention and management of obesity-related diseases.</p>
+    </section>
+
+    <!-- 参考文献 -->
+    <section id="references">
+        <h2>References</h2>
+        <ol>
+            <li id="ref-1">Jagannathan R, Patel S, Ali M, Narayan K. Global updates on cardiovascular disease mortality trends and attribution of traditional risk factors. <em>Curr Diabetes Rep.</em> (2019) 19:1–12. doi: 10.1007/s11892-019-1161-2. <a href="#cite-1" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-2">Mensah GA, Fuster V, Murray CJL, Roth GA. Global Burden of Cardiovascular Diseases and Risks Collaborators. Global Burden of Cardiovascular Diseases and Risks, 1990–2022. <em>J Am Coll Cardiol.</em> (2023) 82:2350–473. doi: 10.1016/j.jacc.2023.11.007. <a href="#cite-1" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-3">Roth G, Mensah G, Johnson C, Addolorato G, Ammirati E, Baddour L, et al. Global burden of cardiovascular diseases and risk factors, 1990–2019: Update from the GBD 2019 study. <em>J Am Coll Cardiol.</em> (2020) 76:2982–3021. doi: 10.1016/j.jacc.2020.11.010. <a href="#cite-1" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-4">Vaduganathan M, Mensah G, Turco J, Fuster V, Roth G. The Global Burden of Cardiovascular Diseases and Risk: A Compass for Future Health. Washington DC: American College of Cardiology Foundation (2022). <a href="#cite-1" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-5">Xu R, Hu X, Wang T, Yang Y, Jiang N, Luo J, et al. Visceral adiposity and risk of stroke: A mendelian randomization study. <em>Front Neurol.</em> (2022) 13:804851. doi: 10.3389/fneur.2022.804851. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-6">Lee V, Han Y, Toh D, Bryant J, Boubertakh R, Le T, et al. Differential association of abdominal, liver, and epicardial adiposity with anthropometry, diabetes, and cardiac remodeling in Asians. <em>Front Endocrinol.</em> (2024) 15:1439691. doi: 10.3389/fendo.2024.1439691. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-7">Colpani V, Baena C, Jaspers L, Van Dijk G, Farajzadegan Z, Dhana K, et al. Lifestyle factors, cardiovascular disease and all-cause mortality in middle-aged and elderly women: A systematic review and meta-analysis. <em>Eur J Epidemiol.</em> (2018) 33:831–45. doi: 10.1007/s10654-018-0374-z. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-8">Laakso M, Kuusisto J. Insulin resistance and hyperglycaemia in cardiovascular disease development. <em>Nat Rev Endocrinol.</em> (2014) 10:293–302. doi: 10.1038/nrendo.2014.29. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-9">Lopez-Jimenez F, Almahmeed W, Bays H, Cuevas A, Di Angelantonio E, Sattar N. Obesity and cardiovascular disease: Mechanistic insights and management strategies. <em>Eur J Prev Cardiol.</em> (2022) 29:2218–37. doi: 10.1093/eurjpc/zwac187. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-10">Khan I, Chong M, Le A, Mohammadi-Shemirani P, Morton R, Brinza C, et al. Surrogate adiposity markers and mortality. <em>JAMA Netw Open.</em> (2023) 6:e2334836. doi: 10.1001/jamanetworkopen.2023.34836. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-11">Cai X, Song S, Hu J, Zhu Q, Yang W, Hong J, et al. Body roundness index improves the predictive value of cardiovascular disease risk in hypertensive patients with obstructive sleep apnea: A cohort study. <em>Clin Exp Hypertens.</em> (2023) 45:2259132. doi: 10.1080/10641963.2023.2259132. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-12">Rico-Martín S, Calderón-García JF, Sánchez-Rey P, Franco-Antonio C, Martinez Alvarez M, Sánchez Muñoz-Torrero JF. Effectiveness of body roundness index in predicting metabolic syndrome: A systematic review and meta-analysis. <em>Obes Rev.</em> (2020) 21:e13023. doi: 10.1111/obr.13023. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-13">Zhang Y, Gao W, Ren R, Liu Y, Li B, Wang A, et al. Body roundness index is related to the low estimated glomerular filtration rate in Chinese population: A cross-sectional study. <em>Front Endocrinol.</em> (2023) 14:1148662. doi: 10.3389/fendo.2023.1148662. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-14">Gao W, Jin L, Li D, Zhang Y, Zhao W, Zhao Y, et al. The association between the body roundness index and the risk of colorectal cancer: A cross-sectional study. <em>Lipids Health Dis.</em> (2023) 22:53. doi: 10.1186/s12944-023-01814-2. <a href="#cite-2" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-15">Liao Y, Zhang R, Shi S, Zhao Y, He Y, Liao L, et al. Triglyceride-glucose index linked to all-cause mortality in critically ill patients: A cohort of 3026 patients. <em>Cardiovasc Diabetol.</em> (2022) 21:128. doi: 10.1186/s12933-022-01563-z. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-16">Mohammad N, Nazli R, Zafar H, Fatima S. Effects of lipid-based multiple micronutrients supplement on the birth outcome of underweight pre-eclamptic women: A randomized clinical trial. <em>Pak J Med Sci.</em> (2022) 38:219–26. doi: 10.12669/pjms.38.1.4396. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-17">Zhang X, Li J, Zheng S, Luo Q, Zhou C, Wang C. Fasting insulin, insulin resistance, and risk of cardiovascular or all-cause mortality in non-diabetic adults: A meta-analysis. <em>Biosci Rep.</em> (2017) 37:BSR20170947. doi: 10.1042/BSR20170947. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-18">Alavi Tabatabaei G, Mohammadifard N, Rafiee H, Nouri F, Najafian J, Sadeghi M. Association of the triglyceride glucose index with all-cause and cardiovascular mortality in a general population of Iranian adults. <em>Cardiovasc Diabetol.</em> (2024) 23:66. doi: 10.1186/s12933-024-02148-8. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-19">Zheng R, Mao Y. Triglyceride and glucose (TyG) index as a predictor of incident hypertension: A 9-year longitudinal population-based study. <em>Lipids Health Dis.</em> (2017) 16:1–7. doi: 10.1186/s12944-017-0562-y. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-20">Selvi N, Nandhini S, Sakthivadivel V, Lokesh S, Srinivasan A, Sumathi S. Association of triglyceride–glucose index (TyG index) with HbA1c and insulin resistance in type 2 diabetes mellitus. <em>Maedica.</em> (2021) 16:375. doi: 10.26574/maedica.2021.16.3.375. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-21">Liu F, Ling Q, Xie S, Xu Y, Liu M, Hu Q, et al. Association between triglyceride glucose index and arterial stiffness and coronary artery calcification: A systematic review and exposure-effect meta-analysis. <em>Cardiovasc Diabetol.</em> (2023) 22:111. doi: 10.1186/s12933-023-01819-2. <a href="#cite-3" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-22">Tong Y, Xu S, Huang L, Chen C. Obesity and insulin resistance: Pathophysiology and treatment. <em>Drug Discov Today.</em> (2022) 27:822–30. doi: 10.1016/j.drudis.2021.11.001. <a href="#cite-4" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-23">Dang K, Wang X, Hu J, Zhang Y, Cheng L, Qi X, et al. The association between triglyceride-glucose index and its combination with obesity indicators and cardiovascular disease: NHANES 2003–2018. <em>Cardiovasc Diabetol.</em> (2024) 23:8. doi: 10.1186/s12933-023-02115-9. <a href="#cite-4" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-24">Wang B, Li L, Tang Y, Ran X. Joint association of triglyceride glucose index (TyG) and body roundness index (BRI) with stroke incidence: A national cohort study. <em>Cardiovasc Diabetol.</em> (2025) 24:164. doi: 10.1186/s12933-025-02724-6. <a href="#cite-4" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-25">Zhao Y, Hu Y, Smith J, Strauss J, Yang G. Cohort profile: The China health and retirement longitudinal study (CHARLS). <em>Int J Epidemiol.</em> (2014) 43:61–8. doi: 10.1093/ije/dys203. <a href="#cite-22" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-26">Chen X, Crimmins E, Hu P, Kim J, Meng Q, Strauss J, et al. Venous blood-based biomarkers in the China health and retirement longitudinal study: Rationale, design, and results from the 2015 wave. <em>Am J Epidemiol.</em> (2019) 188:1871–7. doi: 10.1093/aje/kwz170. <a href="#cite-23" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-27">Thomas D, Bredlau C, Bosy-Westphal A, Mueller M, Shen W, Gallagher D, et al. Relationships between body roundness with body fat and visceral adipose tissue emerging from a new geometrical model. <em>Obesity.</em> (2013) 21:2264–71. doi: 10.1002/oby.20408. <a href="#cite-24" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-28">Gao K, Cao L, Ma W, Gao Y, Luo M, Zhu J, et al. Association between sarcopenia and cardiovascular disease among middle-aged and older adults: Findings from the China health and retirement longitudinal study. <em>EClinicalMedicine.</em> (2022) 44:101264. doi: 10.1016/j.eclinm.2021.101264. <a href="#cite-25" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-29">Simental-Mendía L, Rodríguez-Morán M, Guerrero-Romero F. The product of fasting glucose and triglycerides as surrogate for identifying insulin resistance in apparently healthy subjects. <em>Metab Syndr Relat Disord.</em> (2008) 6:299–304. doi: 10.1089/met.2008.0034. <a href="#cite-26" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-30">Sinaga K, Yang M. Unsupervised K-means clustering algorithm. <em>IEEE Access.</em> (2020) 8:80716–27. doi: 10.1109/ACCESS.2020.2988796. <a href="#cite-28" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-31">Avagimyan A, Pogosova N, Fogacci F, Aghajanova E, Djndoyan Z, Patoulias D, et al. Triglyceride-glucose index (TyG) as a novel biomarker in the era of cardiometabolic medicine. <em>Int J Cardiol.</em> (2025) 418:132663. doi: 10.1016/j.ijcard.2024.132663. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-32">S-Íñigo L, Navarro-González D, Fernández-Montero A, Martínez JA. The TyG index may predict the development of cardiovascular events. <em>Eur J Clin Invest.</em> (2016) 46:189–97. doi: 10.1111/eci.12583. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-33">Cui H, Liu Q, Wu Y, Cao L. Cumulative triglyceride-glucose index is a risk for CVD: A prospective cohort study. <em>Cardiovasc Diabetol.</em> (2022) 21:22. doi: 10.1186/s12933-022-01456-1. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-34">Grandl G, Wolfrum C. Hemostasis, endothelial stress, inflammation, and the metabolic syndrome. <em>Semin Immunopathol.</em> (2018) 40:215–24. doi: 10.1007/s00281-017-0666-5. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-35">Osman A, Seres-Bokor A, Ducza E. Diabetes mellitus therapy in the light of oxidative stress and cardiovascular complications. <em>J Diabetes Compl.</em> (2024) 39:108941. doi: 10.1016/j.jdiacomp.2024.108941. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-36">Zeng G, Nystrom F, Ravichandran L, Cong L, Kirby M, Mostowski H, et al. Roles for insulin receptor, PI3-kinase, and Akt in insulin-signaling pathways related to production of nitric oxide in human vascular endothelial cells. <em>Circulation.</em> (2000) 101:1539–45. doi: 10.1161/01.CIR.101.13.1539. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-37">Hill M, Yang Y, Zhang L, Sun Z, Jia G, Parrish A, et al. Insulin resistance, cardiovascular stiffening and cardiovascular disease. <em>Metabolism.</em> (2021) 119:154766. doi: 10.1016/j.metabol.2021.154766. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-38">Randriamboavonjy V, Fleming I. Insulin, insulin resistance, and platelet signaling in diabetes. <em>Diabetes Care.</em> (2009) 32:528–30. doi: 10.2337/dc08-1942. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-39">Miao Y, Wang Y, Wan Q. Association between TyG index with obesity indicators and coronary heart disease: A cohort study. <em>Sci Rep.</em> (2025) 15:8920. doi: 10.1038/s41598-025-93922-5. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-40">Shi S, Song Y, Liu Z, He J, Zheng Z, Song C, et al. The association of the triglyceride-glucose index with the risk of atrial fibrillation: Analysis of the UK Biobank. <em>Nutr Metabol Cardiovasc Dis.</em> (2025) 35:103826. doi: 10.1016/j.numecd.2024.103826. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-41">Liu Q, Cui H, Ma Y, Han X, Cao Z, Wu Y. Triglyceride-glucose index associated with the risk of cardiovascular disease: The Kailuan study. <em>Endocrine.</em> (2022) 75:392–9. doi: 10.1007/s12020-021-02862-3. <a href="#cite-31" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-42">Fuster J, Ouchi N, Gokce N, Walsh K. Obesity-induced changes in adipose tissue microenvironment and their impact on cardiovascular disease. <em>Circulation Res.</em> (2016) 118:1786–807. doi: 10.1161/CIRCRESAHA.115.306885. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-43">Wang K, Chen P, Tan B, Wei C, Tan J, Fang Z, et al. Association of body roundness index and cardiovascular disease among US adults. <em>Circulation.</em> (2024) 150:A4142783–4142783. doi: 10.1111/dom.16346. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-44">Yang M, Liu J, Shen Q, Chen H, Liu Y, Wang N, et al. Body roundness index trajectories and the incidence of cardiovascular disease: Evidence from the China health and retirement longitudinal study. <em>J Am Heart Assoc.</em> (2024) 13:e034768. doi: 10.1161/JAHA.124.034768. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-45">Wang P, Fan Y, Gao H, Wang B. Body roundness index as a predictor of all-cause and cardiovascular mortality in patients with diabetes and prediabetes. <em>Diabetes Res Clin Pract.</em> (2025) 219:111958. doi: 10.1016/j.diabres.2024.111958. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-46">Firouzi F, Ramezani Tehrani F, Kaveh A, Mousavi M, Azizi F, Behboudi-Gandevani S. Adiposity trajectories and cardiovascular disease risk in women: A population-based cohort study with a focus on menopausal status. <em>Front Endocrinol.</em> (2024) 15:1389330. doi: 10.3389/fendo.2024.1389330. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-47">Preda A, Carbone F, Tirandi A, Montecucco F, Liberale L. Obesity phenotypes and cardiovascular risk: From pathophysiology to clinical management. <em>Rev Endocrine Metab Disord.</em> (2023) 24:901–19. doi: 10.1007/s11154-023-09813-5. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-48">Rana M, Neeland I. Adipose tissue inflammation and cardiovascular disease: An update. <em>Curr Diabetes Rep.</em> (2022) 22:27–37. doi: 10.1007/s11892-021-01446-9. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-49">Ren Y, Zhao H, Yin C, Lan X, Wu L, Du X, et al. Adipokines, hepatokines and myokines: Focus on their role and molecular mechanisms in adipose tissue inflammation. <em>Front Endocrinol.</em> (2022) 13:873699. doi: 10.3389/fendo.2022.873699. <a href="#cite-42" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-50">Huo R, Zhai L, Liao Q, You X. Changes in the triglyceride glucose-body mass index estimate the risk of stroke in middle-aged and older Chinese adults: A nationwide prospective cohort study. <em>Cardiovasc Diabetol.</em> (2023) 22:254. doi: 10.1186/s12933-023-01983-5. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-51">Cheng Y, Fang Z, Zhang X, Wen Y, Lu J, He S, et al. Association between triglyceride glucose-body mass index and cardiovascular outcomes in patients undergoing percutaneous coronary intervention: A retrospective study. <em>Cardiovasc Diabetol.</em> (2023) 22:75. doi: 10.1186/s12933-023-01794-8. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-52">Zhang Y, Wang R, Fu X, Song H. Non-insulin-based insulin resistance indexes in predicting severity for coronary artery disease. <em>Diabetol Metab Syndr.</em> (2022) 14:191. doi: 10.1186/s13098-022-00967-x. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-53">Zhang Z, Zhao L, Lu Y, Meng X, Zhou X. Association between non-insulin-based insulin resistance indices and cardiovascular events in patients undergoing percutaneous coronary intervention: A retrospective study. <em>Cardiovasc Diabetol.</em> (2023) 22:161. doi: 10.1186/s12933-023-01898-1. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-54">Gan Y, Luo Y, Zhai L, Huo R, Dai X, Liao Q. Temporal trends, associated risk factors and longitudinal cardiovascular outcomes of body roundness among middle-aged and older Chinese adults: From the China Health and retirement longitudinal study 2011–2018. <em>Front Nutr.</em> (2025) 12:1515067. doi: 10.3389/fnut.2025.1515067. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-55">Xie Y, Guo R, Li Z, Guo X, Sun G, Sun Z, et al. Temporal relationship between body mass index and triglyceride-glucose index and its impact on the incident of hypertension. <em>Nutr Metab Cardiovasc Dis.</em> (2019) 29:1220–9. doi: 10.1016/j.numecd.2019.07.003. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-56">Han Y, Sun Q, Chen W, Gao Y, Ye J, Chen Y, et al. New advances of adiponectin in regulating obesity and related metabolic syndromes. <em>J Pharm Anal.</em> (2024) 14:100913. doi: 10.1016/j.jpha.2023.12.003. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-57">Saltiel A, Olefsky J. Inflammatory mechanisms linking obesity and metabolic disease. <em>J Clin Invest.</em> (2017) 127:1–4. doi: 10.1172/JCI92035. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-58">Rafiee H, Mohammadifard N, Nouri F, Alavi Tabatabaei G, Najafian J, Sadeghi M, et al. Association of triglyceride glucose index with cardiovascular events: Insights from the Isfahan Cohort Study (ICS). <em>Eur J Med Res.</em> (2024) 29:135. doi: 10.1186/s40001-024-01728-4. <a href="#cite-50" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-59">Li W, Shen C, Kong W, Zhou X, Fan H, Zhang Y, et al. Association between the triglyceride glucose-body mass index and future cardiovascular disease risk in a population with Cardiovascular-Kidney-Metabolic syndrome stage 0–3: A nationwide prospective cohort study. <em>Cardiovasc Diabetol.</em> (2024) 23:292. doi: 10.1186/s12933-024-02352-6. <a href="#cite-59" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-60">Du Z, Xing L, Lin M, Sun Y. Estimate of prevalent ischemic stroke from triglyceride glucose-body mass index in the general population. <em>BMC Cardiovasc Disord.</em> (2020) 20:483. doi: 10.1186/s12872-020-01768-8. <a href="#cite-59" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-61">Karastergiou K, Smith S, Greenberg A, Fried S. Sex differences in human adipose tissues–the biology of pear shape. <em>Biol Sex Dif.</em> (2012) 3:1–12. doi: 10.1186/2042-6410-3-13. <a href="#cite-59" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-62">Power M, Schulkin J. Sex differences in fat storage, fat metabolism, and the health risks from obesity: Possible evolutionary origins. <em>Br J Nutr.</em> (2008) 99:931–40. doi: 10.1017/S0007114507853347. <a href="#cite-59" class="backref">↩︎ 返回正文</a></li>
+            <li id="ref-63">Ciarambino T, Crispino P, Guarisco G, Giordano M. Gender differences in insulin resistance: New knowledge and perspectives. <em>Curr Issues Mol Biol.</em> (2023) 45:7845–61. doi: 10.3390/cimb45100496. <a href="#cite-59" class="backref">↩︎ 返回正文</a></li>
+        </ol>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2025 作者姓名 · 基于 MIT 许可的样例模板</p>
+    </div>
+</footer>
+
+<!-- 图片放大预览层 -->
+<div id="img-modal" class="img-modal" aria-hidden="true">
+    <img id="img-modal-content" class="img-modal-content" src="" alt="">
+</div>
+
+<script>
+    // 图片点击放大功能
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('img-modal');
+        const modalImg = document.getElementById('img-modal-content');
+
+        document.querySelectorAll('img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+                modal.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        modal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+        });
+    });
+</script>
+</body>
+</html>
